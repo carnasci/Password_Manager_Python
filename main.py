@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
@@ -10,10 +11,14 @@ def save_data():
     username = username_input.get()
     password = password_input.get()
 
-    with open("manager_data.txt", "a") as f:
-        f.write(f"{website} | {username} | {password}\n")
-    website_input.delete(0, END)
-    password_input.delete(0, END)
+    is_ok = messagebox.askokcancel(title=website, message=f"These are the details you entered: \nWebsite:{website} "
+                                                  f"\nUsername:{username} \nPassword:{password} "
+                                                  f"\nIs this OK?")
+    if is_ok:
+        with open("manager_data.txt", "a") as f:
+            f.write(f"{website} | {username} | {password}\n")
+        website_input.delete(0, END)
+        password_input.delete(0, END)
 
 # ---------------------------- UI SETUP ------------------------------- #
 
