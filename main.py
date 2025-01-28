@@ -4,6 +4,13 @@ from tkinter import *
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
+def save_data():
+    with open("manager_data.txt", "a") as f:
+        f.write(f"\n{website_input.get().title()} | {username_input.get()} | {password_input.get()}")
+    website_input.delete(0, END)
+    username_input.delete(0, END)
+    password_input.delete(0, END)
+
 # ---------------------------- UI SETUP ------------------------------- #
 
 window = Tk()
@@ -38,7 +45,7 @@ password_input.grid(row=3, column=1)
 generate_button = Button(text="Generate Password")
 generate_button.grid(row=3, column=2)
 
-add_button = Button(text="Add", width=36)
+add_button = Button(text="Add", width=36, command=save_data)
 add_button.grid(row=4, column=1, columnspan=2)
 
 
