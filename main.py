@@ -90,28 +90,31 @@ logo_img = PhotoImage(file="logo.png")
 canvas.create_image(100, 100, image=logo_img)
 canvas.grid(row=0, column=1)
 
+#Labels
 website_label = Label(text="Website:")
 website_label.grid(row=1, column=0)
 
+username_label = Label(text="Email/Username:")
+username_label.grid(row=2, column=0)
+
+password_label = Label(text="Password:")
+password_label.grid(row=3, column=0)
+
+#Entries
 website_input = Entry(width=33)
 website_input.grid(row=1, column=1)
 website_input.focus()
-
-search_button = Button(text="Search", width=15, command=find_password)
-search_button.grid(row=1, column=2)
-
-username_label = Label(text="Email/Username:")
-username_label.grid(row=2, column=0)
 
 username_input = Entry(width=52)
 username_input.grid(row=2, column=1, columnspan=2)
 username_input.insert(0, "email@email.com")
 
-password_label = Label(text="Password:")
-password_label.grid(row=3, column=0)
-
 password_input = Entry(width=33)
 password_input.grid(row=3, column=1)
+
+#Buttons
+search_button = Button(text="Search", width=15, command=find_password)
+search_button.grid(row=1, column=2)
 
 generate_button = Button(text="Generate Password", command=generate_password)
 generate_button.grid(row=3, column=2)
